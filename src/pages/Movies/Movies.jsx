@@ -62,6 +62,7 @@ export default function Movies() {
     setSearchParams({ query: inputValue });
     setInputValue('');
   };
+  console.log(location);
   return (
     <>
       <Form onSubmit={handleSubmit}>
@@ -78,7 +79,12 @@ export default function Movies() {
           <GridList>
             {movies.map(({ title, id, poster_path, vote_average }) => (
               <GalleryCard key={id}>
-                <Link to={`${id}`} state={{ from: location }}>
+                <Link
+                  to={{
+                    pathname: `/movies/${id}`,
+                  }}
+                  state={{ from: location }}
+                >
                   <GalleryImg>
                     <CardImg
                       src={

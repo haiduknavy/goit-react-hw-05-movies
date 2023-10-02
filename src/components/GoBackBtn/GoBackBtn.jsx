@@ -1,9 +1,9 @@
 import { BtnWrapper, Search } from './GoBackBtn.Styled';
 
-function GoBackBtn({ location }) {
+function GoBackBtn({ data }) {
   return (
     <BtnWrapper>
-      <Search to={location.state?.from ?? '/'}>Go back</Search>;
+      <Search to={data}>Go back</Search>;
     </BtnWrapper>
   );
 }

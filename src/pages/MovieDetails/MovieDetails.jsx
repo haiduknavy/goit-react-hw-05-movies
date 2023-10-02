@@ -28,10 +28,11 @@ function MovieDetails() {
   }, []);
 
   const location = useLocation();
-
+  const locationFrom = location?.state?.from ?? '/';
+console.log(location.state.from);
   return (
     <>
-      <GoBackBtn location={location} />
+      <GoBackBtn data={locationFrom} />
       {status && (
         <Wrapper>
           <ImgWrapper>
@@ -52,8 +53,8 @@ function MovieDetails() {
             </WrapperInfo>
           </ImgWrapper>
           <MovieInfo>
-            <LinkDetail to="cast">Cast</LinkDetail>
-            <LinkDetail to="reviews">Reviews</LinkDetail>
+            <LinkDetail to="cast" state={{ from: locationFrom }}>Cast</LinkDetail>
+            <LinkDetail to="reviews" state={{ from: locationFrom }}>Reviews</LinkDetail>
             <Outlet />
           </MovieInfo>
         </Wrapper>
